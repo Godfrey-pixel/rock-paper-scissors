@@ -1,79 +1,90 @@
-/* This is a game of Rock, Paper, Scissors.
-The players will challenge the computer.
-There will be five rounds each.
-If the player gets for points than the computer they win.
-If the computer gets more points then the computer wins.
-Otherwise it is a draw. */
+/*
+This is a simple game of Rock, Paper, Scissors where the player challenges the computer.
+Each game consists of five rounds.
+At the end of the five rounds, the scores are compared to determine the winner.
 
-// This is the function to get the choice from the computer.
-//This will use the Random module to create a random choice for the computer
+*/
 
-function getComputerChoice(){
-    let computerSelection = Math.floor(Math.random()*3);
+// This function randomly generates the computer's choice (Rock, Paper, or Scissors).
 
-    if (computerSelection == 0){
-        return "Rock";
-    }
-    else if (computerSelection == 1){
-        return "Paper";
-    }
-    else{
-        return "Scissors";
-    }
-}
+function getComputerChoice() {
+    const choices = ["Rock", "Paper", "Scissors"];
+    const computerSelection = Math.floor(Math.random() * choices.length);
+    return choices[computerSelection];
+  };
+  
 
 
 
+  
+/* This function prompts the user to make a choice (Rock, Paper, or Scissors) 
+and converts it to title case.
+*/
+
+function getPlayerChoice() {
+    let playerSelection = prompt("Rock, Paper, or Scissors? ");
+  
+    // Convert the input to title case (first letter capitalized, rest lowercase)
+    playerSelection = playerSelection.toLowerCase();
+    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+  
+    return playerSelection;
+  };
+  
 
 
-//Here promt the user to make a choice.
-
-function getPlayerChoice(){
-    let playerSelection = prompt("Rock, Paper or Scissors? ");
-
-    return playerSelection = playerSelection.toUpperCase().charAt(0)+playerSelection.toLocaleLowerCase().slice(1);
-}
-
-
-
-//This is a function that combines the choices of the player and that of the computer.
+/*
+This function compares the player's and computer's choices and determines the winner of the round.
+It uses the "winMessages" object to define winning choices for each player selection.
+*/
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection == computerSelection){
-        return "It is a draw.";
-
-    }else if (playerSelection == "Rock" && computerSelection == "Scissors"){
-        return "You Win! Rock beats Scissors";
-
-    } else if (playerSelection == "Rock" && computerSelection == "Paper") {
-        return "You Lose!, Paper beats Rock";
-
-    }else if (playerSelection == "Scissors" && computerSelection == "Rock") {
-        return "You Lose!, Rock beats Scissors";
-
-    }else if (playerSelection == "Scissors" && computerSelection=="Paper"){
-        return "You Win!, Scissors beats Paper";
-    
-    } else if (playerSelection == "Paper" && computerSelection == "Rock") {
-        return "You Win, Paper beats Rock";
-
-    } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
-        return "You Lose!, Scissors beats Paper";
-
+    const winMessages = {
+      Rock: "Scissors",
+      Paper: "Rock",
+      Scissors: "Paper"
+    };
+  
+    if (playerSelection === computerSelection) {
+      return "It's a draw.";
+    } else if (winMessages[playerSelection] === computerSelection) {
+      return `You Win! ${playerSelection} beats ${computerSelection}`;
+    } else {
+      return `You Lose! ${computerSelection} beats ${playerSelection}`;
     }
-  }
+  };
+  
 
-
-//Here goes a function that recodrs the score for each player for the five rounds.
+/*
+This function plays the game, tracks the player's and computer's scores for the five rounds,
+and reports the final results at the end.
+*/
 
 
 function game() {
-    let i = 5;
-    while (i > 0) {
-        const computerSelection = getComputerChoice();
-        const playerSelection = getPlayerChoice();
-        alert(playRound(playerSelection, computerSelection));
-        i--;
+    let playerScore = 0;
+    let computerScore = 0;
+    const totalRounds = 5;
+  
+    for (let i = 0; i < totalRounds; i++) {
+      const computerSelection = getComputerChoice();
+      const playerSelection = getPlayerChoice();
+      const result = playRound(playerSelection, computerSelection);
+      alert(result);
+  
+      if (result.includes("Win")) {
+        playerScore++;
+      } else if (result.includes("Lose")) {
+        computerScore++;
+      }
     }
-}
-game();
+    if (playerScore < computerScore) {
+    alert(`Game Over!\nComputer Wins \nPlayer Score: ${playerScore}\nComputer Score: ${computerScore}`);
+    } else {
+        alert(`Game Over \nPlayer Wins \nPlayer Score: ${playerScore}\nComputer Score: ${computerScore}`)
+    }
+  }
+  
+  game();
+  
+  
