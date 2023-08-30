@@ -1,7 +1,33 @@
 h1 {
     color: white;
+    text-align: center;
+    font-size: 75px;
 }
 
 body{
-    background-color: rgb(25, 18, 29);
+   
+    background-image: linear-gradient(to right, #570738, #ce0cad); 
+    
+    color: white;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.btn {
+    margin: 15px;
+    width: 85px;
+    height: 35px;
+    border-radius: 25px;
+    border: 0;
+    background-color: rgba(228, 110, 136, 0.719);
+    color: white;
+    font-weight: bolder;
+}
+
+.btn:hover {
+
 }
