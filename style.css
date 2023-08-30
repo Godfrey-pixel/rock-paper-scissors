@@ -1,33 +1,89 @@
-h1 {
-    color: white;
-    text-align: center;
-    font-size: 75px;
-}
-
-body{
-   
-    background-image: linear-gradient(to right, #570738, #ce0cad); 
-    
-    color: white;
-}
-
-.btn-container {
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    
-}
-
-.btn {
-    margin: 15px;
-    width: 85px;
-    height: 35px;
-    border-radius: 25px;
-    border: 0;
-    background-color: rgba(228, 110, 136, 0.719);
+    height: 100vh;
+    margin: 0;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .btn-container {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .btn {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
     color: white;
-    font-weight: bolder;
-}
-
-.btn:hover {
-
-}
+    font-weight: bold;
+  }
+  
+  .btn-rock {
+    background-color: #ff6b6b;
+  }
+  
+  .btn-paper {
+    background-color: #3498db;
+  }
+  
+  .btn-scissors {
+    background-color: #2ecc71;
+  }
+  
+  .results-div {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .btn-replay {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+    
+    .btn {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+    }
+    
+    .results-div {
+      font-size: 1rem;
+    }
+    
+    .btn-replay {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+  
