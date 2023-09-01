@@ -125,6 +125,13 @@ h1 {
       font-size: 0.9rem;
       padding: 0.4rem 0.8rem;
   }
+
+  /* Add styles for the contact link */
+.contact-link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent element */
+}
+
 }
 
 /* Add styles for the contact link */
